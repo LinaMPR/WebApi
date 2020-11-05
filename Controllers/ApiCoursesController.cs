@@ -11,11 +11,11 @@ namespace WebApiCursos.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class ApiCoursesController : ControllerBase
     {
         private readonly ICoursesProvider coursesProvider;
 
-        public WeatherForecastController(ICoursesProvider coursesProvider)
+        public ApiCoursesController(ICoursesProvider coursesProvider)
         {
             this.coursesProvider = coursesProvider;
         }
