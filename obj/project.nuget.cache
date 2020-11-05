@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/Yj5gVAPHzlnE5yGqZ0a8uy1HC6F2hqQXUQNWl8oXn6LFDk2tyksp6HULEPcsc5Fyomz7k6U8WYN165Xbu9erA==",
+  "dgSpecHash": "zLt2mTgFHlT6kd7FaHD3hV5wWXu4qRHs2f/Xi2wLyr8CO5Q2HOB56Vs3i7OmUUSg4iGhXPB8cTOmA9+NKNK7dQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\linar\\WebApiCursos\\WebApiCursos.csproj",
+  "projectFilePath": "C:\\Users\\linar\\ApiCursos\\WebApiCursos.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\linar\\WebApiCursos\\WebApiCursos.csproj": {}
+    "C:\\Users\\linar\\ApiCursos\\WebApiCursos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\linar\\WebApiCursos\\WebApiCursos.csproj": {
+    "C:\\Users\\linar\\ApiCursos\\WebApiCursos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\linar\\WebApiCursos\\WebApiCursos.csproj",
+        "projectUniqueName": "C:\\Users\\linar\\ApiCursos\\WebApiCursos.csproj",
         "projectName": "WebApiCursos",
-        "projectPath": "C:\\Users\\linar\\WebApiCursos\\WebApiCursos.csproj",
+        "projectPath": "C:\\Users\\linar\\ApiCursos\\WebApiCursos.csproj",
         "packagesPath": "C:\\Users\\linar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\linar\\WebApiCursos\\obj\\",
+        "outputPath": "C:\\Users\\linar\\ApiCursos\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\linar\\AppData\\Roaming\\NuGet\\NuGet.Config",

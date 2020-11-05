@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using WebApiCursos.Interfaces;
+using WebApiCursos.Models;
 
 namespace WebApiCursos.Controllers
 {
@@ -11,29 +13,74 @@ namespace WebApiCursos.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        private readonly ICoursesProvider coursesProvider;
 
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ICoursesProvider coursesProvider)
         {
-            _logger = logger;
+            this.coursesProvider = coursesProvider;
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<IActionResult> GetAllAsync()
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            var results = await coursesProvider.GetAllasAsync();
+            if (results != null)
             {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+                return Ok(results);
+            }
+
+            return NotFound();
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetAllAync(int id)
+        {
+            var results = await coursesProvider.GetAsync(id);
+            if (results != null)
+            {
+                return Ok(results);
+            }
+            return NotFound(id);
+        }
+
+        [HttpGet("search/{search}")]
+        public async Task<IActionResult> SearchAsync (string search)
+        {
+            var results = await coursesProvider.SearchAsync(search);
+            if (results != null)
+            {
+                return Ok(results);
+            }
+
+            return NotFound(search);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddAsync(Course course)
+        {
+            if (course == null)
+            {
+                return BadRequest();
+            }
+            var results = await coursesProvider.AddAsync(course);
+            if (results.IsSuccess)
+            {
+                return Ok(results.Id);
+            }
+
+            return NotFound();
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateAsync(int id, Course course)
+        {
+            var results = await coursesProvider.UpdateAsync(id, course);
+            if(results)
+            {
+                return Ok(results);
+            }
+
+            return NotFound();
         }
     }
 }
